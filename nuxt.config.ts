@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: false,
-      routes: ['/page-1', '/page-2', '/page-3'],
     },
     routeRules: {
       '/**': { swr: 10 },
