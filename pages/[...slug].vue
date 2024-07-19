@@ -27,7 +27,8 @@ definePageMeta({
 const route = useRoute();
 const slugString = typeof route.params.slug === 'string' ? route.params.slug : route.params.slug.join('/');
 
-const { data: apiResponse } = await useAsyncData(slugString, () => {
+const { data: apiResponse } = await useAsyncData(slugString, async () => {
+  await new Promise(resolve => setTimeout(resolve, 5000));
   return fetch('https://worldtimeapi.org/api/timezone/utc').then(res => res.json());
 });
 
